@@ -6,20 +6,6 @@ to clean up some user-entered geographic locations of
 university names and then placing the data on a Google
 Map.
 
-Note: Windows has difficulty in displaying UTF-8 characters
-in the console so for each command window you open, you may need
-to type the following command before running this code:
-
-    chcp 65001
-
-http://stackoverflow.com/questions/388490/unicode-characters-in-windows-command-line-how
-
-
-You should install the SQLite browser to view and modify
-the databases from:
-
-http://sqlitebrowser.org/
-
 The first problem to solve is that the Google geocoding
 API is rate limited to a fixed number of requests per day.
 So if you have a lot of data you might need to stop and
@@ -40,29 +26,6 @@ lines in where.data and for each line check to see if it is already
 in the database and if we don't have the data for the location,
 call the geocoding API to retrieve the data and store it in
 the database.
-
-As of December 2016, the Google Geocoding APIs changed dramatically.
-They moved some functionality that we use from the Geocoding API
-into the Places API.  Also all the Google Geo-related APIs require an
-API key. To complete this assignment without a Google account,
-without an API key, or from a country that blocks
-access to Google, you can use a subset of that data which is
-available at:
-
-http://py4e-data.dr-chuck.net/json
-
-To use this, simply leave the api_key set to False in 
-geoload.py.
-
-This URL only has a subset of the data but it has no rate limit so
-it is good for testing.
-
-If you want to try this with the API key, follow the
-instructions at:
-
-https://developers.google.com/maps/documentation/geocoding/intro
-
-and put the API key in the code.
 
 Here is a sample run after there is already some data in the
 database:
@@ -132,10 +95,7 @@ myData = [
    ...
 ];
 
-This is a JavaScript list of lists.  The syntax for JavaScript
-list constants is very similar to Python so the syntax should
-be familiar to you.
-
+This is a JavaScript list of lists. 
 Simply open where.html in a browser to see the locations.  You
 can hover over each map pin to find the location that the
 gecoding API returned for the user-entered input.  If you
